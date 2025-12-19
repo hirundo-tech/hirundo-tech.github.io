@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IMAGES } from "../../assets";
 import Button from "../shared/Button";
+import Zoom from "@mui/material/Zoom";
 
 const items = [
   {
@@ -30,27 +31,64 @@ const items = [
 ];
 
 const Services = () => {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
   return (
-    <section className="h-auto pb-10 bg-[#DCECF0] flex justify-center items-center w-full">
+    <section className="h-auto pb-10 bg-[#DCECF0] flex lg:flex-row flex-col justify-center items-center w-full">
       <div>
-        <div className="text-[#1F1F1F] p-10 rounded-4xl lg:w-[80%] md:w-[85%] w-[90%] bg-[#D0DFE2] mx-auto flex gap-10 justify-between items-start">
-          <div className="md:w-[45%] w-full text-[28px]">
+        <div className="text-[#1F1F1F] md:p-10 p-5 rounded-4xl lg:w-[80%] md:w-[85%] w-[90%] bg-[#D0DFE2] mx-auto flex md:flex-row flex-col gap-10 justify-between items-start">
+          <div className="md:w-[45%] w-full md:text-[28px] text-[22px] md:text-left text-center">
             If you want to integrate AI, you need a Team.
           </div>
           <div className="md:w-[45%] w-full">
-            <div className="text-[15px] mb-4 leading-5">
+            <div className="md:text-[15px] text-xs mb-4 leading-5 md:text-left text-center">
               To generate real impact, AI systems must be designed around your
               actual needs, developed with solid engineering, and maintained
               reliably over time. Only then can you reduce costs, increase
               revenue and improve operational efficiency.
             </div>
-            <Button>Book AI Assessment</Button>
+            <div className="flex lg:justify-start justify-center items-center">
+              <Button className="">Book AI Assessment</Button>
+            </div>
           </div>
         </div>
-        <div className="md:mt-10 mt-5 lg:w-[80%] md:w-[85%] w-[90%] bg-[#DCECF0] mx-auto flex gap-x-2 justify-between items-center">
-          {items?.map((item, index) => (
-            <ServiceCard key={index} item={item} />
-          ))}
+
+        <div
+          className="md:mt-10 mt-5 lg:w-[80%] md:w-[85%] w-[90%] bg-[#DCECF0] mx-auto 
+  flex lg:flex-row flex-col flex-wrap gap-4 justify-center items-center"
+        >
+          {items.map((item, index) => {
+            const cardRef = useRef(null);
+            const [visible, setVisible] = useState(false);
+
+            useEffect(() => {
+              const observer = new IntersectionObserver(
+                ([entry]) => {
+                  setVisible(entry.isIntersecting);
+                },
+                { threshold: 0.3 }
+              );
+
+              if (cardRef.current) observer.observe(cardRef.current);
+
+              return () => observer.disconnect();
+            }, []);
+
+            return (
+              <Zoom
+                key={index}
+                in={visible}
+                style={{
+                  transitionDelay: visible ? `${index * 250}ms` : "0ms",
+                }}
+              >
+                <div ref={cardRef}>
+                  <ServiceCard item={item} />
+                </div>
+              </Zoom>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -60,10 +98,9 @@ const Services = () => {
 const ServiceCard = ({ item }) => {
   return (
     <div
-      className="md:w-[240px] w-full"
+      className="md:w-60 w-full lg:h-[373px] h-auto lg:pb-0 pb-4"
       style={{
         color: "#1F1F1F",
-        height: 373,
         background: "#D0DFE2",
         borderRadius: "32px",
         textAlign: "center",

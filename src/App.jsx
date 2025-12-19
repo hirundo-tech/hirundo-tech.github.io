@@ -5,6 +5,7 @@ import About from "./pages/About";
 import CustomAi from "./pages/CustomAi";
 import Portfolio from "./pages/Portfolio";
 import Outsourcing from "./pages/Outsourcing";
+import ContactUs from "./pages/ContactUs";
 import Header from "./components/layout/Header";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/custom-ai" element={<CustomAi />} />
+        <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/outsourcing" element={<Outsourcing />} />
       </Routes>

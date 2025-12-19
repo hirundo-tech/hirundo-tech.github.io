@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IMAGES } from "../../assets";
+import Fade from "@mui/material/Fade";
 
 const items = [
   {
@@ -9,7 +10,7 @@ const items = [
     linkedin: "https://www.linkedin.com/in/giacomo-maraglino-9a811b144/",
     github: "https://github.com/giacomo-giacomo",
     description:
-      "AI engineer with 7+ years of Python experience, specialized in Data Science, ML, and GenAI. Co-founder of Sirio, raising over 800K$, where he enhanced Business Management skills, now works as AI developer & business lead at Hirundo.",
+      "AI engineer with 7+ years of Python experience, specialized in Data Science, ML, and GenAI.Co-founder of Sirio, raising over 800K$, where he enhanced Business Management skills, now works as AI developer & business lead at Hirundo.",
   },
   {
     icon: IMAGES.team1,
@@ -18,16 +19,32 @@ const items = [
     linkedin: "https://www.linkedin.com/in/andrew-costa-95013013b/",
     github: "https://github.com/andrew4costa",
     description:
-      "AI engineer with 7+ years of Python experience, specialized in Data Science, ML, and GenAI. Co-founder of Sirio, raising over 800K$, where he enhanced Business Management skills, now works as AI developer & business lead at Hirundo.",
+      "AI engineer with 7+ years of Python experience, specialized in Data Science, ML, and GenAI.Co-founder of Sirio, raising over 800K$, where he enhanced Business Management skills, now works as AI developer & business lead at Hirundo.",
   },
 ];
 
 const Team = () => {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(entry.intersectionRatio >= 0.1);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="h-auto pb-10 bg-[#DCECF0] flex justify-center items-center w-full">
-      <div className="text-[#1F1F1F] p-10 rounded-4xl lg:w-[70%] md:w-[80%] w-[90%]  mx-auto">
+      <div className="text-[#1F1F1F] lg:p-10 p-4 rounded-4xl lg:w-[70%] md:w-[80%] w-[95%] mx-auto">
         <div className="text-[28px] font-medium">Meet Our Team.</div>
-        <div className="text-[15px] leading-5 mt-8 max-w-[80%]">
+        <div className="text-[15px] leading-5 mt-8 lg:max-w-[80%] max-w-full">
           We are a deliberately small, highly specialized team with a strong
           academic background and hands-on experience in complex, real-world
           projects. Check our Github and Linked In History.
@@ -40,9 +57,22 @@ const Team = () => {
           Supported by a trusted network of domain specialists, we scale
           solutions beyoond pure development.
         </div>
-        <div className="flex justify-between mt-10 items-center gap-x-10">
+
+        <div
+          ref={ref}
+          className="flex md:flex-row flex-col justify-between mt-10 items-center gap-10"
+        >
           {items.map((item, index) => (
-            <TeamCard key={index} member={item} />
+            <Fade
+              key={index}
+              in={visible}
+              timeout={600 + index * 200}
+              style={{ transitionDelay: "100ms" }}
+            >
+              <div>
+                <TeamCard member={item} />
+              </div>
+            </Fade>
           ))}
         </div>
       </div>
@@ -54,12 +84,12 @@ const TeamCard = ({ member }) => {
   const handleClick = (link) => {
     window.open(link, "_blank", "noopener,noreferrer");
   };
+
   return (
     <div
-      className="md:w-[383px] p-5 w-full"
+      className="md:w-[383px] md:h-[562px] h-auto p-5 w-full"
       style={{
         color: "#1F1F1F",
-        height: 562,
         background: "#D0DFE2",
         borderRadius: "32px",
         textAlign: "center",
@@ -74,7 +104,7 @@ const TeamCard = ({ member }) => {
       />
       <div className="text-lg mt-2 font-semibold">{member.name}</div>
       <div className="text-lg mb-4 font-semibold">{member.role}</div>
-      <div className="text-[15px] text-center mb-4 leading-6 px-6">
+      <div className="lg:text-[15px] text-xs text-center mb-4 leading-6 lg:px-6 px-0">
         {member.description}
       </div>
       <div className="flex justify-center items-center gap-x-3">

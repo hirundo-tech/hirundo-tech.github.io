@@ -8,9 +8,11 @@ import team1 from "./images/team1.svg";
 import team2 from "./images/team2.svg";
 import linkedin from "./images/linkedin.svg";
 import github from "./images/github.svg";
+import menu from "./images/menu.svg";
 
 export const IMAGES = {
   logo,
+  menu,
   heroImg,
   service1,
   service2,
