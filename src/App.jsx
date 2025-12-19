@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import CustomAi from "./pages/CustomAi";
@@ -10,7 +10,7 @@ import Header from "./components/layout/Header";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -21,7 +21,7 @@ function App() {
         <Route path="/outsourcing" element={<Outsourcing />} />
       </Routes>
       {/* <Footer /> */}
-    </BrowserRouter>
+    </Router>
   );
 }
 
