@@ -7,7 +7,7 @@ const AnimatedCards = ({ projects }) => {
         return (
           <div
             key={`p_${i}`}
-            className={`w-full flex items-start md:h-[20vh] h-[40vh] sticky bottom-0 pb-5`}
+            className={`w-full flex items-start md:h-[20vh] h-[22vh] sticky bottom-0 lg:pb-5 pb-2`}
             style={{ zIndex: projects.length - i }}
           >
             <div
