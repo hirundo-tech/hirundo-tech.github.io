@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { IMAGES } from "../../assets";
 import Button from "../shared/Button";
+import { useNavigate } from "react-router-dom";
 
 const sitemap = [
   {
@@ -15,16 +16,28 @@ const sitemap = [
 const contacts = [
   {
     label: "Calendly",
-    path: "/",
+    path: "https://calendly.com/hirundo-tech",
   },
-  { label: "Linkedin", path: "/outsourcing" },
-  { label: "Github", path: "/portfolio" },
-  { label: "E-mail Us", path: "/portfolio" },
+  {
+    label: "Linkedin",
+    path: "https://www.linkedin.com/company/hirundo-technologies/",
+  },
+  { label: "Github", path: "https://github.com/hirundo-tech" },
+  { label: "E-mail Us", path: "/portfolio", isNew: false },
 ];
 
 const contactUs = ["Calendly", "Linkedin", "Github", "E-mail Us"];
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleClick = (link, isNew = true) => {
+    if (isNew) {
+      window.open(link, "_blank", "noopener,noreferrer");
+    } else {
+      navigate(link);
+    }
+  };
   return (
     <section className="bg-[#DCECF0] lg:px-5 px-3 py-10 flex justify-center items-center w-full">
       <div className="w-full bg-[#D0DFE2] text-[#1F1F1F] rounded-4xl py-3">
@@ -82,12 +95,12 @@ const Footer = () => {
               <div className="text-lg font-semibold mb-4">Contact Us</div>
               <div className="flex justify-start items-start flex-col gap-y-2">
                 {contacts.map((item) => (
-                  <Link
-                    to={item.path}
-                    className={`text-[15px] transition-all duration-300 text-[#1F1F1F] hover:text-[#2f80c9]`}
+                  <div
+                    onClick={() => handleClick(item.path, item?.isNew)}
+                    className={`text-[15px] cursor-pointer transition-all duration-300 text-[#1F1F1F] hover:text-[#2f80c9]`}
                   >
                     {item.label}
-                  </Link>
+                  </div>
                 ))}
               </div>
             </div>

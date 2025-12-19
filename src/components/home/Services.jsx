@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { IMAGES } from "../../assets";
 import Button from "../shared/Button";
 import Zoom from "@mui/material/Zoom";
+import { motion } from "framer-motion";
 
 const items = [
   {
@@ -31,8 +32,9 @@ const items = [
 ];
 
 const Services = () => {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
+  const handleClick = (link) => {
+    window.open(link, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <section className="h-auto pb-10 bg-[#DCECF0] flex lg:flex-row flex-col justify-center items-center w-full">
@@ -49,7 +51,11 @@ const Services = () => {
               revenue and improve operational efficiency.
             </div>
             <div className="flex lg:justify-start justify-center items-center">
-              <Button className="">Book AI Assessment</Button>
+              <Button
+                onClick={() => handleClick("https://calendly.com/hirundo-tech")}
+              >
+                Book AI Assessment
+              </Button>
             </div>
           </div>
         </div>
@@ -64,9 +70,7 @@ const Services = () => {
 
             useEffect(() => {
               const observer = new IntersectionObserver(
-                ([entry]) => {
-                  setVisible(entry.isIntersecting);
-                },
+                ([entry]) => setVisible(entry.isIntersecting),
                 { threshold: 0.3 }
               );
 
@@ -76,17 +80,19 @@ const Services = () => {
             }, []);
 
             return (
-              <Zoom
+              <motion.div
                 key={index}
-                in={visible}
-                style={{
-                  transitionDelay: visible ? `${index * 250}ms` : "0ms",
+                ref={cardRef}
+                initial={{ y: 70, opacity: 0 }} // start slightly below
+                animate={visible ? { y: 0, opacity: 1 } : {}}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.1, // staggered delay
+                  ease: "easeOut",
                 }}
               >
-                <div ref={cardRef}>
-                  <ServiceCard item={item} />
-                </div>
-              </Zoom>
+                <ServiceCard item={item} />
+              </motion.div>
             );
           })}
         </div>

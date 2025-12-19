@@ -4,6 +4,9 @@ import { IMAGES } from "../../assets";
 import { motion } from "framer-motion";
 
 const Hero = () => {
+  const handleClick = (link) => {
+    window.open(link, "_blank", "noopener,noreferrer");
+  };
   return (
     <section className="md:h-[90vh] h-auto bg-[#DCECF0] flex justify-center items-center w-full">
       <div className="lg:w-[80%] md:w-[85%] w-[90%] md:pt-0 pt-10 mx-auto flex lg:flex-row flex-col lg:gap-10 gap-5 justify-between items-center">
@@ -24,7 +27,11 @@ const Hero = () => {
             strong engineering with structured project management skills.
           </p>
           <div className="flex md:justify-start justify-center items-center md:gap-x-7 gap-x-4">
-            <Button>Book AI Assessment</Button>
+            <Button
+              onClick={() => handleClick("https://calendly.com/hirundo-tech")}
+            >
+              Book AI Assessment
+            </Button>
             <Button variant="outlined">Our Services</Button>
           </div>
         </motion.div>
@@ -34,11 +41,19 @@ const Hero = () => {
           alt="hero image"
           width={419}
           height={419}
-          className="w-full h-full bg-contain"
+          className="w-full h-full bg-contain hover:scale-105 transition-all animate-1000"
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: false, amount: 0.5 }}
-          transition={{ duration: 1 }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
+          animate={{
+            y: [0, -15, 0], // float up and down
+          }}
         />
       </div>
     </section>
