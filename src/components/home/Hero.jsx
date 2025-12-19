@@ -41,18 +41,22 @@ const Hero = () => {
           alt="hero image"
           width={419}
           height={419}
-          className="w-full h-full bg-contain hover:scale-105 transition-all animate-1000"
+          className="w-full h-full bg-contain hover:scale-105 transition-all"
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: false, amount: 0.5 }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            repeatType: "loop",
-            ease: "easeInOut",
-          }}
           animate={{
-            y: [0, -15, 0], // float up and down
+            y: [0, -15], // float up and down
+          }}
+          transition={{
+            y: {
+              duration: 6,
+              repeat: Infinity,
+              repeatType: "mirror",
+              ease: "easeInOut",
+            },
+            x: { duration: 1, ease: "easeOut" },
+            opacity: { duration: 1, ease: "easeOut" },
           }}
         />
       </div>
