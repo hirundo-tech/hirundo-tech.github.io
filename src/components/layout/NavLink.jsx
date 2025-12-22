@@ -23,7 +23,7 @@ const NavLink = ({ link }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const baseClass = "font-medium transition-all duration-300";
+  const baseClass = "font-medium text-xs transition-all duration-300";
   const activeClass = "text-[#2f80c9] font-bold";
   const inactiveClass = "text-[#1F1F1F] hover:text-[#2f80c9]";
 

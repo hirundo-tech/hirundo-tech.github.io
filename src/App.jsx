@@ -6,12 +6,10 @@ import CustomAi from "./pages/CustomAi";
 import Portfolio from "./pages/Portfolio";
 import Outsourcing from "./pages/Outsourcing";
 import ContactUs from "./pages/ContactUs";
-import Header from "./components/layout/Header";
 
 function App() {
   return (
     <Router>
-      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

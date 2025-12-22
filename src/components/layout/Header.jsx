@@ -66,9 +66,9 @@ export default function Header() {
             className="lg:block hidden"
           />
           <img
-            src={IMAGES.logo} // replace with your logo path
+            src={IMAGES.logotype} // replace with your logo path
             alt="HIRUNDO Logo"
-            width={75}
+            width={135}
             height={75}
             className="lg:hidden block"
           />
@@ -84,7 +84,7 @@ export default function Header() {
             borderRadius: 8,
             boxShadow: "0px 2px 3px 0px rgba(0, 0, 0, 0.15)",
           }}
-          className="md:flex hidden"
+          className="lg:flex hidden justify-between items-center"
         >
           {items.map((link, index) => (
             <NavLink key={index} link={link} />

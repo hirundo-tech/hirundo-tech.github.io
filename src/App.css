@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
-body{
+html{
   background-color: #DCECF0 !important;
+  width: 100%;
+  overflow-x: hidden
 }

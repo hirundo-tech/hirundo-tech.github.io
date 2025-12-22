@@ -41,8 +41,8 @@ const Footer = () => {
   return (
     <section className="bg-[#DCECF0] lg:px-5 px-3 py-10 flex justify-center items-center w-full">
       <div className="w-full bg-[#D0DFE2] text-[#1F1F1F] rounded-4xl py-3">
-        <div className="lg:px-20 px-10 w-full flex lg:flex-row flex-col lg:gap-0 gap-10  justify-between items-center">
-          <div>
+        <div className="lg:px-20 md:px-0 px-10 w-full flex md:flex-row flex-col lg:gap-0 gap-10  justify-between lg:items-center items-start">
+          <div className="md:px-20 px-0 lg:pl-0">
             <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
               <p
                 className="text-center text-[#1F1F1F] leading-4 text-[26px]"
@@ -77,7 +77,7 @@ const Footer = () => {
               Back to Top
             </Button>
           </div>
-          <div className="flex lg:flex-row flex-col justify-start items-start lg:gap-20 gap-10 md:w-[45%] w-full">
+          <div className="md:px-20 pl-0 flex lg:flex-row flex-col justify-start items-start lg:gap-20 gap-10 md:w-[45%] w-full">
             <div>
               <div className="text-lg font-semibold mb-4">Sitemap</div>
               <div className="flex justify-start items-start flex-col gap-y-2">

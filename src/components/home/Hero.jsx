@@ -48,69 +48,75 @@ const Hero = () => {
   return (
     <section
       ref={ref}
-      className="md:h-[80vh] relative h-auto bg-[#DCECF0] flex justify-center items-center w-full"
+      className="md:h-auto relative h-auto bg-[#DCECF0] w-full"
     >
-      <div className="lg:w-[80%] md:w-[85%] w-[90%] md:pt-0 pt-10 mx-auto flex lg:flex-row flex-col lg:gap-10 gap-5 justify-between items-center">
-        <motion.div
-          className="text-[#1F1F1F] flex flex-col gap-y-10"
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: false, amount: 0.5 }}
-          transition={{ duration: 1 }}
-        >
-          <div className="lg:-mb-5.5 font-semibold md:text-[44px] text-[22px] md:text-left text-center">
-            We build AI Systems.
-          </div>
-          <div className="font-semibold md:text-[44px] text-[22px] md:text-left text-center">
-            Custom and outsourced.
-          </div>
-          <p className="mt-0 lg:text-lg text-xs lg:text-left text-center">
-            From design to deployment, we operate as an external AI unit or
-            build custom systems around your business processes, combining
-            strong engineering with structured project management skills.
-          </p>
-          <div className="flex md:justify-start justify-center items-center md:gap-x-7 gap-x-4">
-            <Button
-              onClick={() => handleClick("https://calendly.com/hirundo-tech")}
-            >
-              Book AI Assessment
-            </Button>
-            <Button variant="outlined">Our Services</Button>
-          </div>
-        </motion.div>
+      <div className="flex justify-center items-center w-full">
+        <div className="lg:w-[80%] md:w-[85%] w-[90%] md:pt-5 pt-10 mx-auto flex lg:flex-row flex-col lg:gap-10  gap-5 justify-between items-center">
+          <motion.div
+            className="text-[#1F1F1F] flex flex-col lg:gap-y-10 md:gap-y-5"
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: false, amount: 0.5 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="lg:-mb-5.5 font-semibold xl:text-[44px] lg:text-[36px] md:text-[30px] text-[22px] md:text-left text-center">
+              We build AI Systems.
+            </div>
+            <div className="font-semibold lg:-mb-2 xl:text-[44px] lg:text-[36px] md:text-[30px] text-[22px] md:text-left text-center">
+              Custom and outsourced.
+            </div>
+            <p className="mt-0 lg:text-lg text-xs md:text-left text-center">
+              From design to deployment, we operate as an external AI unit or
+              build custom systems around your business processes, combining
+              strong engineering with structured project management skills.
+            </p>
+            <div className="flex md:justify-start justify-center items-center md:gap-x-5 gap-x-4">
+              <button
+                onClick={() => handleClick("https://calendly.com/hirundo-tech")}
+                className="bg-[#2F80C9] text-[#DCECF0] font-medium md:text-[15px] md:w-[175px] w-[150px] text-[13px] h-[42px] cursor-pointer rounded-4xl"
+              >
+                Book AI Assessment
+              </button>
+              <button
+                onClick={() => handleClick("https://calendly.com/hirundo-tech")}
+                className="border-2 bg-[#DCECF0] border-[#2F80C9] text-[#2F80C9] font-semibold md:text-[15px] text-[13px] md:w-[143px] w-[130px] flex justify-center items-center h-[42px] cursor-pointer rounded-4xl"
+              >
+                Our Services
+              </button>
+            </div>
+          </motion.div>
 
-        <motion.img
-          src={IMAGES.heroImg}
-          alt="hero image"
-          width={419}
-          height={419}
-          className="w-full h-full bg-contain hover:scale-105 transition-all"
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: false, amount: 0.5 }}
-          animate={{
-            y: [0, -15], // float up and down
-          }}
-          transition={{
-            y: {
-              duration: 6,
-              repeat: Infinity,
-              repeatType: "mirror",
-              ease: "easeInOut",
-            },
-            x: { duration: 1, ease: "easeOut" },
-            opacity: { duration: 1, ease: "easeOut" },
-          }}
-        />
-      </div>
-      {isVisible && (
-        <div
-          onClick={handleScrollDown}
-          className="bg-[#D0DFE2] rounded-full p-4 fixed bottom-5 left-1/2 -translate-x-1/2 cursor-pointer"
-        >
-          <img src={IMAGES.down} alt="arrow-down" width={10} height={10} />
+          <motion.img
+            src={IMAGES.heroImg}
+            alt="hero image"
+            width={419}
+            height={419}
+            className="bg-contain md:h-[419px] w-[270px] h-[270px] md:w-[419px] hover:scale-105 transition-all lg:mb-0 md:mb-3 mb-10"
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: false, amount: 0.5 }}
+            animate={{
+              y: [0, -15], // float up and down
+            }}
+            transition={{
+              y: {
+                duration: 6,
+                repeat: Infinity,
+                repeatType: "mirror",
+                ease: "easeInOut",
+              },
+              x: { duration: 1, ease: "easeOut" },
+              opacity: { duration: 1, ease: "easeOut" },
+            }}
+          />
         </div>
-      )}
+      </div>
+      <div
+        onClick={handleScrollDown}
+        className="bg-[#D0DFE2] lg:block hidden rounded-full p-4  mx-auto w-[42px] mb-[70px] mt-[55px] h-[42px] cursor-pointer"
+      >
+        <img src={IMAGES.down} alt="arrow-down" width={10} height={10} />
+      </div>
     </section>
   );
 };
