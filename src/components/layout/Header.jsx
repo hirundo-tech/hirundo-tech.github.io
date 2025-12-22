@@ -58,21 +58,10 @@ export default function Header() {
           }}
           onClick={() => navigate("/")}
         >
-          <p
-            className="text-center text-[#1F1F1F] leading-4 lg:text-[26px] text-lg"
-            style={{
-              fontWeight: 800,
-              leadingTrim: "none",
-              letterSpacing: "30%",
-              verticalAlign: "middle",
-            }}
-          >
-            HIRUNDO
-          </p>
           <img
-            src={IMAGES.logo} // replace with your logo path
+            src={IMAGES.logotype} // replace with your logo path
             alt="HIRUNDO Logo"
-            width={95}
+            width={250}
             height={95}
             className="lg:block hidden"
           />
@@ -103,7 +92,7 @@ export default function Header() {
         </Box>
 
         <Button
-          className="lg:block hidden"
+          className="lg:block hidden font-semibold!"
           onClick={() => navigate("/contact-us")}
         >
           Contact Us

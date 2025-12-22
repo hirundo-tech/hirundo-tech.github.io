@@ -1,4 +1,5 @@
 import logo from "./images/logo.svg";
+import logotype from "./images/logotype.png";
 import heroImg from "./images/hero-img.svg";
 import service1 from "./images/service1.svg";
 import service2 from "./images/service2.svg";
@@ -13,6 +14,7 @@ import down from "./images/down.svg";
 
 export const IMAGES = {
   logo,
+  logotype,
   menu,
   down,
   heroImg,

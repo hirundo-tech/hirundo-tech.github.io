@@ -40,11 +40,11 @@ const Services = () => {
     <section className="h-auto pb-10 bg-[#DCECF0] flex lg:flex-row flex-col justify-center items-center w-full">
       <div>
         <div className="text-[#1F1F1F] md:p-10 p-5 rounded-4xl lg:w-[80%] md:w-[85%] w-[90%] bg-[#D0DFE2] mx-auto flex md:flex-row flex-col gap-10 justify-between items-start">
-          <div className="md:w-[45%] w-full md:text-[28px] text-[22px] md:text-left text-center">
+          <div className="md:w-[42%] w-full md:text-[28px] leading-10 font-medium text-[22px] md:text-left text-center">
             If you want to integrate AI, you need a Team.
           </div>
           <div className="md:w-[45%] w-full">
-            <div className="md:text-[15px] text-xs mb-4 leading-5 md:text-left text-center">
+            <div className="md:text-[15px] text-xs mb-6 leading-6 md:text-left text-center">
               To generate real impact, AI systems must be designed around your
               actual needs, developed with solid engineering, and maintained
               reliably over time. Only then can you reduce costs, increase
@@ -62,7 +62,7 @@ const Services = () => {
 
         <div
           className="md:mt-10 mt-5 lg:w-[80%] md:w-[85%] w-[90%] bg-[#DCECF0] mx-auto 
-  flex lg:flex-row flex-col flex-wrap gap-4 justify-center items-center"
+  grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 justify-center items-center"
         >
           {items.map((item, index) => {
             const cardRef = useRef(null);
@@ -104,7 +104,7 @@ const Services = () => {
 const ServiceCard = ({ item }) => {
   return (
     <div
-      className="md:w-60 w-full lg:h-[373px] h-auto lg:pb-0 pb-4"
+      className=" w-full lg:h-[373px] h-auto lg:pb-0 pb-4"
       style={{
         color: "#1F1F1F",
         background: "#D0DFE2",
@@ -117,9 +117,9 @@ const ServiceCard = ({ item }) => {
         width={145}
         height={145}
         alt={item.title}
-        className="mx-auto"
+        className="mx-auto mb-2"
       />
-      <div className="text-lg mb-4 font-semibold">{item.title}</div>
+      <div className="text-lg mb-3 font-semibold">{item.title}</div>
       <div className="text-[15px] text-center leading-6 px-6">
         {item.description}
       </div>

@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { IMAGES } from "../../assets";
 import Fade from "@mui/material/Fade";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const items = [
   {
@@ -42,20 +44,20 @@ const Team = () => {
 
   return (
     <section className="h-auto pb-10 bg-[#DCECF0] flex justify-center items-center w-full">
-      <div className="text-[#1F1F1F] lg:p-10 p-4 rounded-4xl lg:w-[70%] md:w-[80%] w-[95%] mx-auto">
+      <div className="text-[#1F1F1F] lg:p-10 p-4 rounded-4xl lg:w-[58%] md:w-[80%] w-[95%] mx-auto">
         <div className="text-[28px] font-medium">Meet Our Team.</div>
-        <div className="text-[15px] leading-5 mt-8 lg:max-w-[80%] max-w-full">
+        <div className="text-[15px] leading-5 mt-8 lg:max-w-[87%] max-w-full">
           We are a deliberately small, highly specialized team with a strong
           academic background and hands-on experience in complex, real-world
           projects. Check our Github and Linked In History.
         </div>
-        <div className="text-[15px] font-semibold leading-5 my-4 max-w-[80%]">
+        <div className="text-[15px] font-semibold leading-5 my-4 max-w-[87%]">
           We believe in small, highly-specialized and focused teams that are
           able to manage complex and high-impact workflows.
         </div>
-        <div className="text-[15px] leading-5 max-w-[80%]">
+        <div className="text-[15px] leading-5 max-w-[87%]">
           Supported by a trusted network of domain specialists, we scale
-          solutions beyoond pure development.
+          solutions beyond pure development.
         </div>
 
         <div
@@ -87,7 +89,7 @@ const TeamCard = ({ member }) => {
 
   return (
     <div
-      className="md:w-[383px] md:h-[562px] h-auto p-5 w-full"
+      className="md:w-95.75 md:h-140.5 h-auto p-5 w-full"
       style={{
         color: "#1F1F1F",
         background: "#D0DFE2",
@@ -102,25 +104,27 @@ const TeamCard = ({ member }) => {
         alt={member.name}
         className="mx-auto"
       />
-      <div className="text-lg mt-2 font-semibold">{member.name}</div>
+      <div className="text-lg mt-6 font-semibold">{member.name}</div>
       <div className="text-lg mb-4 font-semibold">{member.role}</div>
       <div className="lg:text-[15px] text-xs text-center mb-4 leading-6 lg:px-6 px-0">
         {member.description}
       </div>
-      <div className="flex justify-center items-center gap-x-3">
-        <img
-          src={IMAGES.github}
-          width={31}
-          height={31}
+      <div className="flex justify-center items-center gap-x-5">
+        <LinkedInIcon
+          className={`cursor-pointer text-[60px]`}
+          sx={{
+            fontSize: { lg: "40px", md: "30px", sx: "25px" },
+            transition: "color 300ms ease",
+            color: "#2F80C9",
+          }}
           onClick={() => handleClick(member.github)}
-          className="cursor-pointer"
         />
-        <img
-          src={IMAGES.linkedin}
-          width={31}
-          height={31}
+        <GitHubIcon
+          className={`cursor-pointer`}
+          sx={{
+            fontSize: { lg: "35px", md: "30px", sx: "25px" },
+          }}
           onClick={() => handleClick(member.linkedin)}
-          className="cursor-pointer"
         />
       </div>
     </div>

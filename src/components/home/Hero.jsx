@@ -1,14 +1,55 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Button from "../shared/Button";
 import { IMAGES } from "../../assets";
 import { motion } from "framer-motion";
 
 const Hero = () => {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
   const handleClick = (link) => {
     window.open(link, "_blank", "noopener,noreferrer");
   };
+
+  const smoothScrollBy = (distance, duration = 700) => {
+    const start = window.scrollY;
+    let startTime = null;
+
+    const animate = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      // easeInOutCos function for smooth acceleration/deceleration
+      const ease = 0.5 * (1 - Math.cos(Math.PI * progress));
+      window.scrollTo(0, start + distance * ease);
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+
+    requestAnimationFrame(animate);
+  };
+
+  const handleScrollDown = () => {
+    smoothScrollBy(window.innerHeight, 700);
+  };
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.intersectionRatio >= 0.9);
+      },
+      { threshold: 0.9 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="md:h-[90vh] h-auto bg-[#DCECF0] flex justify-center items-center w-full">
+    <section
+      ref={ref}
+      className="md:h-[80vh] relative h-auto bg-[#DCECF0] flex justify-center items-center w-full"
+    >
       <div className="lg:w-[80%] md:w-[85%] w-[90%] md:pt-0 pt-10 mx-auto flex lg:flex-row flex-col lg:gap-10 gap-5 justify-between items-center">
         <motion.div
           className="text-[#1F1F1F] flex flex-col gap-y-10"
@@ -17,10 +58,12 @@ const Hero = () => {
           viewport={{ once: false, amount: 0.5 }}
           transition={{ duration: 1 }}
         >
-          <h1 className="font-semibold md:text-[44px] text-[22px] md:text-left text-center">
+          <div className="lg:-mb-5.5 font-semibold md:text-[44px] text-[22px] md:text-left text-center">
             We build AI Systems.
-            <br /> Custom and outsourced.
-          </h1>
+          </div>
+          <div className="font-semibold md:text-[44px] text-[22px] md:text-left text-center">
+            Custom and outsourced.
+          </div>
           <p className="mt-0 lg:text-lg text-xs lg:text-left text-center">
             From design to deployment, we operate as an external AI unit or
             build custom systems around your business processes, combining
@@ -60,6 +103,14 @@ const Hero = () => {
           }}
         />
       </div>
+      {isVisible && (
+        <div
+          onClick={handleScrollDown}
+          className="bg-[#D0DFE2] rounded-full p-4 fixed bottom-5 left-1/2 -translate-x-1/2 cursor-pointer"
+        >
+          <img src={IMAGES.down} alt="arrow-down" width={10} height={10} />
+        </div>
+      )}
     </section>
   );
 };
