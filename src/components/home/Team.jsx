@@ -44,7 +44,7 @@ const Team = () => {
 
   return (
     <section className="h-auto md:mt-20 mt-20 lg:mt-0 pb-10 bg-[#DCECF0] flex justify-center items-center w-full">
-      <div className="text-[#1F1F1F] lg:p-10 p-4 rounded-4xl lg:w-[58%] md:w-[80%] w-[95%] mx-auto">
+      <div className="text-[#1F1F1F] lg:p-10 p-4 rounded-4xl xl:w-[58%] lg:w-[75%] md:w-[95%] w-[95%] mx-auto">
         <div className="text-[28px] font-medium">Meet Our Team.</div>
         <div className="text-[15px] leading-5 mt-8 lg:max-w-[87%] max-w-full">
           We are a deliberately small, highly specialized team with a strong
@@ -89,7 +89,7 @@ const TeamCard = ({ member }) => {
 
   return (
     <div
-      className="md:w-95.75 md:h-140.5 h-auto p-5 w-full"
+      className="lg:w-95.75 md:w-85 md:h-140.5 h-auto p-5 w-full"
       style={{
         color: "#1F1F1F",
         background: "#D0DFE2",
