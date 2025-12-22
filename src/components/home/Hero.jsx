@@ -50,7 +50,7 @@ const Hero = () => {
       ref={ref}
       className="md:h-auto relative h-auto bg-[#DCECF0] w-full"
     >
-      <div className="flex justify-center items-center w-full">
+      <div className="flex justify-center items-center w-full xl:px-10">
         <div className="lg:w-[80%] md:w-[85%] w-[90%] md:pt-5 pt-10 mx-auto flex lg:flex-row flex-col lg:gap-10  gap-5 justify-between items-center">
           <motion.div
             className="text-[#1F1F1F] flex flex-col lg:gap-y-10  gap-y-3"
@@ -113,7 +113,7 @@ const Hero = () => {
       </div>
       <div
         onClick={handleScrollDown}
-        className="bg-[#D0DFE2] lg:block hidden rounded-full p-4  mx-auto w-[42px] mb-[70px] mt-[55px] h-[42px] cursor-pointer"
+        className="bg-[#D0DFE2] lg:block hidden rounded-full p-4  mx-auto w-[42px] mb-[70px] mt-[75px] h-[42px] cursor-pointer"
       >
         <img src={IMAGES.down} alt="arrow-down" width={10} height={10} />
       </div>

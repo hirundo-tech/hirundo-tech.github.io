@@ -105,7 +105,7 @@ const Services = () => {
 const ServiceCard = ({ item }) => {
   return (
     <div
-      className=" w-full lg:h-[373px] h-auto lg:pb-0 pb-4"
+      className=" w-full  lg:pb-0 pb-4"
       style={{
         color: "#1F1F1F",
         background: "#D0DFE2",
@@ -121,7 +121,7 @@ const ServiceCard = ({ item }) => {
         className="mx-auto mb-2"
       />
       <div className="text-lg mb-3 font-semibold">{item.title}</div>
-      <div className="text-[15px] text-center leading-6 px-6">
+      <div className="text-[15px] xl:min-h-[180px]  lg:min-h-[230px] md:min-h-[110px]  text-center leading-6 px-6">
         {item.description}
       </div>
     </div>
