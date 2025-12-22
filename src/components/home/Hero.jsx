@@ -1,12 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
-import Button from "../shared/Button";
 import { IMAGES } from "../../assets";
 import { motion } from "framer-motion";
+import { useMediaQuery } from "@mui/material";
 
 const Hero = () => {
-  const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
   const handleClick = (link) => {
     window.open(link, "_blank", "noopener,noreferrer");
   };
@@ -32,24 +28,10 @@ const Hero = () => {
     smoothScrollBy(window.innerHeight, 700);
   };
 
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.intersectionRatio >= 0.9);
-      },
-      { threshold: 0.9 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-
-    return () => observer.disconnect();
-  }, []);
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   return (
-    <section
-      ref={ref}
-      className="md:h-auto relative h-auto bg-[#DCECF0] w-full"
-    >
+    <section className="md:h-auto relative h-auto bg-[#DCECF0] w-full">
       <div className="flex justify-center items-center w-full xl:px-10">
         <div className="lg:w-[80%] md:w-[85%] w-[90%] md:pt-5 pt-10 mx-auto flex lg:flex-row flex-col lg:gap-10  gap-5 justify-between items-center">
           <motion.div
@@ -92,8 +74,8 @@ const Hero = () => {
             width={419}
             height={419}
             className="bg-contain md:h-[419px] w-[270px] h-[270px] md:w-[419px] hover:scale-105 transition-all lg:mb-0 md:mb-3 mb-10"
-            initial={{ x: 100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+            initial={isDesktop ? { x: 100, opacity: 0 } : { opacity: 1 }}
+            whileInView={isDesktop ? { x: 0, opacity: 1 } : {}}
             viewport={{ once: false, amount: 0.5 }}
             animate={{
               y: [0, -15], // float up and down
