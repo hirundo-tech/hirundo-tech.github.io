@@ -41,10 +41,10 @@ const Hero = () => {
             viewport={{ once: false, amount: 0.5 }}
             transition={{ duration: 1 }}
           >
-            <div className="lg:-mb-5.5 font-semibold xl:text-[44px] lg:text-[36px] md:text-[30px] text-[22px] md:text-left text-center">
+            <div className="lg:-mb-5.5 md:font-semibold font-bold xl:text-[44px] lg:text-[36px] md:text-[30px] text-[22px] md:text-left text-center">
               We build AI Systems.
             </div>
-            <div className="font-semibold lg:-mb-2 xl:text-[44px] lg:text-[36px] md:text-[30px] text-[22px] md:text-left text-center">
+            <div className="md:font-semibold font-bold lg:-mb-2 xl:text-[44px] lg:text-[36px] md:text-[30px] text-[22px] md:text-left text-center">
               Custom and outsourced.
             </div>
             <p className="mt-0 lg:text-lg text-xs md:text-left text-center">
