@@ -7,21 +7,21 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 const items = [
   {
     icon: IMAGES.team2,
-    name: "Andrew - ",
+    name: "Giacomo - ",
     role: "AI Dev & Business Manager",
     linkedin: "https://www.linkedin.com/in/giacomo-maraglino-9a811b144/",
     github: "https://github.com/giacomo-giacomo",
     description:
-      "AI engineer with 7+ years of Python experience, specialized in Data Science, ML, and GenAI.Co-founder of Sirio, raising over 800K$, where he enhanced Business Management skills, now works as AI developer & business lead at Hirundo.",
+      "AI engineer with 7+ years of Python experience, specialized in Data Science, ML, and GenAI. Co-founder of Sirio, raising over 800K$, where he enhanced Business Management skills, now works as AI developer & business lead at Hirundo.",
   },
   {
     icon: IMAGES.team1,
-    name: "Giacomo - ",
+    name: "Andrew - ",
     role: "Fullstack AI Developer",
     linkedin: "https://www.linkedin.com/in/andrew-costa-95013013b/",
     github: "https://github.com/andrew4costa",
     description:
-      "AI engineer with 7+ years of Python experience, specialized in Data Science, ML, and GenAI.Co-founder of Sirio, raising over 800K$, where he enhanced Business Management skills, now works as AI developer & business lead at Hirundo.",
+      "AI & Machine Learning Engineer with an MSC in Data Science and Economics, helping organizations transform complex data into scalable, production-ready AI products—from strategy and modeling to deployment and real-world impact.",
   },
 ];
 
