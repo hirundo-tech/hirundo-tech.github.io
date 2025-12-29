@@ -39,7 +39,7 @@ const Hero = () => {
                 Book AI Assessment
               </button>
               <button
-                onClick={() => handleClick("https://calendly.com/hirundo-tech")}
+                // onClick={() => handleClick("https://calendly.com/hirundo-tech")}
                 className="border-2 bg-[#DCECF0] border-[#2F80C9] text-[#2F80C9] font-semibold text-[15px] px-2.5 flex justify-center items-center h-10.5 cursor-pointer rounded-4xl"
               >
                 Our Services
