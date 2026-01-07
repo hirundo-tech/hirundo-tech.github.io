@@ -52,7 +52,7 @@ const Footer = () => {
                 alt="HIRUNDO Logo"
                 width={175}
                 height={95}
-                fetchpriority="high"
+                fetchPriority="high"
                 loading="lazy"
               />
             </div>
