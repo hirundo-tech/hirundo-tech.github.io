@@ -58,7 +58,7 @@ export default function Header({ visible }) {
       >
         <div
           onClick={() => setShow(true)}
-          className="lg:hidden absolute cursor-pointer top-13 bg-[#2F80C9] rounded-md p-1 w-8.5 h-8.5 right-4"
+          className="lg:hidden absolute cursor-pointer top-13 bg-[#2F80C9] rounded-md p-1 w-10.5 h-10.5 right-4"
         >
           {/* <img
             src={IMAGES.menu} // replace with your logo path
@@ -75,7 +75,7 @@ export default function Header({ visible }) {
           >
             <MenuRoundedIcon
               sx={{
-                fontSize: "30px",
+                fontSize: "38px",
                 marginTop: "-2px",
                 color: "white",
                 cursor: "pointer",
